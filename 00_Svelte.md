@@ -17,7 +17,7 @@ Virtual DOM을 사용 X
 Runtime이 아닌 빌드 단계에 앱에서 어떤 변경사항이 발생하는지 알고 있음
 ```
 
-### Trult reactive
+### Truly reactive
 ```
 별도의 Setter없이 assignments만으로 업데이트 trigger 가능 -> 변경된 값이 DOM에 자동으로 반영
 ```
