@@ -6,7 +6,7 @@
 let count = 0;
 
 function handleClick(event) {
-	count += 1;
+  count += 1;
 }
 ```
 ```html
