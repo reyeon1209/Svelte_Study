@@ -38,15 +38,15 @@ flows data from child to parent (ordinarily flows parent to child)
 #### select
 ```html
 <select bind:value={selected}>
-	<option value={a}>a</option>
-	<option value={b}>b</option>
+  <option value={a}>a</option>
+  <option value={b}>b</option>
 </select>
 ```
 
 ```html
 <select multiple bind:value={fillings}>
-	<option value="Rice">Rice</option>
-	<option value="Beans">Beans</option>
+  <option value="Rice">Rice</option>
+  <option value="Beans">Beans</option>
 </select>
 ```
 
@@ -77,16 +77,16 @@ let isShow = false;
 let inputEl;
 
 async function toggle() {
-	isShow = !isShow;
-	await tick();
-	console.log(inputEl);
-	inputEl && inputEl.focus();
+  isShow = !isShow;
+  await tick();
+  console.log(inputEl);
+  inputEl && inputEl.focus();
 }
 ```
 ```html
 <button on:click={toggle}>Edit!</button>
 {#if isShow}
-	<input bind:this={inputEl}>
+  <input bind:this={inputEl}>
 {/if}
 ```
 
@@ -99,14 +99,14 @@ let active = false;
 <button on:click={() => {active = !active}}>Toggle!</button>
 <div class:active={active}>Hello</div>
 <style>
-	div {
-		width: 50px;
-		background: blue;
-	}
-	.active {
-		width: 150px;
-		background: yellow;
-	}
+  div {
+    width: 50px;
+    background: blue;
+  }
+  .active {
+    width: 150px;
+    background: yellow;
+  }
 </style>
 ```
 
@@ -120,12 +120,12 @@ let active = false;
 연결된 요소가 생성될 때 호출할 함수(action) 지정
 ```js
 function foo() {
-	// mount
-	return {
-		destroy() {
-			// return object after unmount
-		}
-	}
+  // mount
+  return {
+    destroy() {
+      // return object after unmount
+    }
+  }
 }
 ```
 ```html
