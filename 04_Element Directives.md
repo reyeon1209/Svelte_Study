@@ -24,5 +24,22 @@ self - event.target가 요소 자체인 경우에만 trigger handler
 trusted: event.isTrusted가 true인 경우에만 trigger handler
 ```
 
+### bind:property
+flows data from child to parent (ordinarily flows parent to child)
+```bind:this``` 요소 바로 참조 가능
 
-! 미 완 성 !
+```html
+	<input bind:value={value} />
+	<input bind:value />
+	<input type="checkbox" bind:checked={checked} />
+	<input type="file" accept="img/png, img/jpeg" bind:files id="avatar" name="avatar" />
+	<textarea bind:value={text}></textarea>
+```
+
+```html
+<div contenteditable="true" bind:innerHTML={html}></div>
+```
+
+```html
+<details bind:open={isOpen}></details>
+```
