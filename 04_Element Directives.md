@@ -3,11 +3,11 @@
 ### on:eventname
 
 ```js
-	let count = 0;
-	
-	function handleClick(event) {
-		count += 1;
-	}
+let count = 0;
+
+function handleClick(event) {
+	count += 1;
+}
 ```
 ```html
 <button on:click={handleClick}>count: {count}</button>
@@ -28,26 +28,26 @@ trusted: event.isTrusted가 true인 경우에만 trigger handler
 flows data from child to parent (ordinarily flows parent to child)
 
 ```html
-	<input bind:value={value} />
-	<input bind:value />
-	<input type="checkbox" bind:checked={checked} />
-	<input type="file" accept="img/png, img/jpeg" bind:files id="avatar" name="avatar" />
-	<textarea bind:value={text}></textarea>
+<input bind:value={value} />
+<input bind:value />
+<input type="checkbox" bind:checked={checked} />
+<input type="file" accept="img/png, img/jpeg" bind:files id="avatar" name="avatar" />
+<textarea bind:value={text}></textarea>
 ```
 
 #### select
 ```html
-	<select bind:value={selected}>
-		<option value={a}>a</option>
-		<option value={b}>b</option>
-	</select>
+<select bind:value={selected}>
+	<option value={a}>a</option>
+	<option value={b}>b</option>
+</select>
 ```
 
 ```html
-	<select multiple bind:value={fillings}>
-		<option value="Rice">Rice</option>
-		<option value="Beans">Beans</option>
-	</select>
+<select multiple bind:value={fillings}>
+	<option value="Rice">Rice</option>
+	<option value="Beans">Beans</option>
+</select>
 ```
 
 ```html
@@ -60,73 +60,73 @@ flows data from child to parent (ordinarily flows parent to child)
 ```
 ### bind:group
 ```js
-	let tortilla = 'Plain';
+let tortilla = 'Plain';
 ```
 ```html
-	<input type="radio" bind:group={tortilla} value="Plain">
-	<input type="radio" bind:group={tortilla} value="Spinach">
+<input type="radio" bind:group={tortilla} value="Plain">
+<input type="radio" bind:group={tortilla} value="Spinach">
 ```
 
 ### bind:this
 요소 바로 참조 가능
 
 ```js
-	import { tick, onMount } from 'svelte';
+import { tick, onMount } from 'svelte';
 
-	let isShow = false;
-	let inputEl;
+let isShow = false;
+let inputEl;
 
-	async function toggle() {
-		isShow = !isShow;
-		await tick();
-		console.log(inputEl);
-		inputEl && inputEl.focus();
-	}
+async function toggle() {
+	isShow = !isShow;
+	await tick();
+	console.log(inputEl);
+	inputEl && inputEl.focus();
+}
 ```
 ```html
-	<button on:click={toggle}>Edit!</button>
-	{#if isShow}
-		<input bind:this={inputEl}>
-	{/if}
+<button on:click={toggle}>Edit!</button>
+{#if isShow}
+	<input bind:this={inputEl}>
+{/if}
 ```
 
 ### class:name
 ```js
-	let active = false;
+let active = false;
 ```
 
 ```html
-	<button on:click={() => {active = !active}}>Toggle!</button>
-	<div class:active={active}>Hello</div>
-	<style>
-		div {
-			width: 50px;
-			background: blue;
-		}
-		.active {
-			width: 150px;
-			background: yellow;
-		}
-	</style>
+<button on:click={() => {active = !active}}>Toggle!</button>
+<div class:active={active}>Hello</div>
+<style>
+	div {
+		width: 50px;
+		background: blue;
+	}
+	.active {
+		width: 150px;
+		background: yellow;
+	}
+</style>
 ```
 
 ### style:property
 ```html
-	<div style:property={value} >...</div>
-	<div style:property="value" >...</div>
+<div style:property={value} >...</div>
+<div style:property="value" >...</div>
 ```
 
 ### use:action
 연결된 요소가 생성될 때 호출할 함수(action) 지정
 ```js
-	function foo() {
-		// mount
-		return {
-			destroy() {
-				// return object after unmount
-			}
+function foo() {
+	// mount
+	return {
+		destroy() {
+			// return object after unmount
 		}
 	}
+}
 ```
 ```html
 <div use:foo></div>
